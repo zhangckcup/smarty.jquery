@@ -1,0 +1,30 @@
+{
+  "name": "smarty.jquery",
+  "version": "1.0.0",
+  "description": "smarty.ink use jQuery+bootstrap",
+  "main": "/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "author": "zhangckcup",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "jquery": "^1.12.4"
+  },
+  "devDependencies": {
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.2.0",
+    "less": "^3.11.1",
+    "less-loader": "^6.0.0",
+    "style-loader": "^1.2.0",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
