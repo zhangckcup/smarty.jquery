@@ -2,36 +2,32 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
-  title: 'Smarty.ink',
   filename: 'index.html',
   template: './index.html'
 })
 
 module.exports = {
   mode: "development", // "production" | "development"
-  entry: {
-    index: './js/index.js',
-  },
+  entry:  './js/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name]-[hash:6].js'
   },
   plugins: [htmlWebpackPlugin],
   module: {
-    rules: [{
-        test: /\.(html)$/,
-        use: [{
-          loader: "html-loader",
-        }]
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+          esModule: false,
+          name: '[name]-[hash:6].[ext]'
+        },
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[name]-[hash:6].[ext]',
-          outputPath: 'img/',
-          publicPath: '/src/img',
-        },
+        test: /\.html$/,
+        loader: "html-loader",
       },
       {
         test: /\.(ttf|woff|woff2|svg|eot)$/i,
@@ -43,7 +39,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
       
